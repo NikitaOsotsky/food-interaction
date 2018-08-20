@@ -1,0 +1,22 @@
+{
+  "name": "food-interaction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaOsotsky/food-interaction.git"
+  },
+  "author": "Mikita Asotski <masotski@exadel.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaOsotsky/food-interaction/issues"
+  },
+  "homepage": "https://github.com/NikitaOsotsky/food-interaction#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
