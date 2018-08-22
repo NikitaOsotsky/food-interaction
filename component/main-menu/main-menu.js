@@ -33,5 +33,26 @@ class MainMenu {
 
     this.container.innerHTML = html;
   }
+  getShopData (target) {
+
+    if (target.className === 'main-menu__list') {
+      return;
+    }
+
+    const liChildren = target.parentElement.childNodes;
+    for (let key in liChildren) {
+      if (liChildren[key].alt) {
+        this.name = liChildren[key].alt;
+      }
+    }
+    for (let key in this.data) {
+      if (this.data[key].name === this.name) {
+        this.singleData = this.data[key].menu;
+      }
+
+    }
+
+    return this.singleData;
+  }
 }
 export {MainMenu};
