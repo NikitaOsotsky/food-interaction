@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NikitaOsotsky/food-interaction#readme",
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "jquery": "^3.3.1"
   }
 }

@@ -1,0 +1,73 @@
+/**
+stylesheet for main menu
+ */
+.main-menu {
+  position: relative;
+  width: 290px;
+  height: 540px;
+}
+.main-menu__header {
+  position: relative;
+  color: #888c8f;
+  margin: 0 auto 80px;
+  text-align: center;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.84em;
+  font-weight: normal;
+}
+.main-menu__header:before {
+  content: "||";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  transform: rotate(45deg);
+}
+.main-menu__header:after {
+  content: "\20dd";
+  position: absolute;
+  top: 0;
+  left: 90%;
+  color: red;
+}
+.main-menu__list {
+  padding-left: 80px;
+}
+.main-menu__list__element {
+  position: relative;
+  color: #4c5255;
+  list-style: none;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 1.34em;
+  margin-bottom: 55px;
+  cursor: pointer;
+}
+.main-menu__list__element:last-child {
+  margin-bottom: 0;
+}
+.main-menu__list__element__logo {
+  position: absolute;
+  top: 0;
+  height: 32px;
+  width: 32px;
+  left: -37px;
+  /**
+  -37(left) + 32(width) = -5 (pixels left for full covering)
+   */
+  padding-right: 5px;
+  font-size: 0.33em;
+  font-weight: normal;
+  color: rgba(76, 82, 85, 0.75);
+}
+.main-menu__list__element__time {
+  position: absolute;
+  top: 1.34em;
+  padding-top: 5px;
+  left: 0;
+  color: #c6c9cb;
+  font-weight: normal;
+  font-size: 0.55em;
+}
+.main-menu__list__element__text {
+  cursor: inherit;
+}
