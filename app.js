@@ -5,5 +5,6 @@ const menu = new MainMenu(container);
 console.log(menu);
 menu.getBrands();
 container.addEventListener('click', (evt) => {
-  const subMenu = new SubMenu(menu.getShopData(evt.target));
+  const subMenuContainer = document.querySelector('.sub-menu__list');
+  const subMenu = new SubMenu(menu.getShopData(evt.target), subMenuContainer);
 });
