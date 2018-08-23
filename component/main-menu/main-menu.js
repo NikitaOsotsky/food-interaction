@@ -9,7 +9,7 @@ class MainMenu {
   }
 
   getBrands() {
-    MainMenuService.getBrands()
+    MainMenuService.getBrands('/data/main-menu__brands.json')
         .done((data) => {
           this.data = data;
           this.render(data)
@@ -24,7 +24,7 @@ class MainMenu {
     let html = '';
     for (let i = 0; i < data.length; i++) {
       html +=
-          `<li class="main-menu__list__element">
+          `<li id="${data[i].id}" class="main-menu__list__element">
               <img class="main-menu__list__element__logo" src="${data[i].image ? data[i].image : 'https://via.placeholder.com/32x32' }" alt="${data[i].name}">
               <label class="main-menu__list__element__text">${data[i].name}</label>
               <span class="main-menu__list__element__time">${data[i].duration.from}-${data[i].duration.to} min</span> 
@@ -38,21 +38,13 @@ class MainMenu {
     if (target.className === 'main-menu__list') {
       return;
     }
-
-    const liChildren = target.parentElement.childNodes;
-    for (let key in liChildren) {
-      if (liChildren[key].alt) {
-        this.name = liChildren[key].alt;
-      }
-    }
-    for (let key in this.data) {
-      if (this.data[key].name === this.name) {
-        this.singleData = this.data[key].menu;
-      }
-
-    }
-
-    return this.singleData;
+    this.foodData = "";
+    this.liChildren = target.parentElement;
+    MainMenuService.getBrands('/data/'+this.liChildren.id+'.json')
+        .done((data) => {
+          this.foodData = data;
+        });
+    return this.foodData;
   }
 }
 export {MainMenu};
