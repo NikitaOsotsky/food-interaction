@@ -33,14 +33,32 @@ class MainMenu {
 
     this.container.innerHTML = html;
   }
+
+  getName (id) {
+    for (let key in this.data) {
+      if (this.data[key].id === id) {
+        return this.data[key].name;
+      }
+    }
+  }
+
+  getLogo (id) {
+    for (let key in this.data) {
+      if (this.data[key].id === id) {
+        return this.data[key].image;
+      }
+    }
+  }
   getShopData (target) {
     const self = this;
+    self.liChildren = target.parentElement;
+    self.restName = self.getName(self.liChildren.id);
+    self.restLogo = self.getLogo(self.liChildren.id);
     return new Promise(function(resolve, reject) {
       if (target.className === 'main-menu__list') {
         return;
       }
       self.foodData = "";
-      self.liChildren = target.parentElement;
       MainMenuService.getBrands('/data/'+self.liChildren.id+'.json')
           .done((data) => {
             resolve(data);
@@ -49,7 +67,7 @@ class MainMenu {
             reject(data);
           });
     }).then(resolve => {
-      subMenu.render(resolve)
+      subMenu.render(resolve, self.restName, self.restLogo)
     })
   }
 }
