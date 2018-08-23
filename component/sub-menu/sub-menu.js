@@ -13,7 +13,7 @@ class SubMenu {
       for (let item in data[0].menu[key]) {
         this.html +=
             `<li class="sub-menu__list__item">${item}
-              <span class="sub-menu__list__item__cost">${data[0].menu[key][item]} min</span> 
+              <span class="sub-menu__list__item__cost">${data[0].menu[key][item]}</span> 
             </li>`;
       }
     }
