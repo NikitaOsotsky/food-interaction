@@ -3,7 +3,7 @@ export class MainMenuService {
   }
 
   static getBrands(link) {
-    $.ajaxSetup({async:false});
+//    $.ajaxSetup({async:false});
     return $.ajax(link);
   }
 }
