@@ -1,5 +1,5 @@
 import {MainMenuService} from "./main-menu-service.js"
-
+import {subMenu} from "../../app.js"
 // TODO: template comes from 'main-menu.tpl'
 // TODO: template comes from 'main-menu__list-element.tpl'
 
@@ -34,17 +34,23 @@ class MainMenu {
     this.container.innerHTML = html;
   }
   getShopData (target) {
-
-    if (target.className === 'main-menu__list') {
-      return;
-    }
-    this.foodData = "";
-    this.liChildren = target.parentElement;
-    MainMenuService.getBrands('/data/'+this.liChildren.id+'.json')
-        .done((data) => {
-          this.foodData = data;
-        });
-    return this.foodData;
+    const self = this;
+    return new Promise(function(resolve, reject) {
+      if (target.className === 'main-menu__list') {
+        return;
+      }
+      self.foodData = "";
+      self.liChildren = target.parentElement;
+      MainMenuService.getBrands('/data/'+self.liChildren.id+'.json')
+          .done((data) => {
+            resolve(data);
+          })
+          .fail((data) => {
+            reject(data);
+          });
+    }).then(resolve => {
+      subMenu.render(resolve)
+    })
   }
 }
 export {MainMenu};
