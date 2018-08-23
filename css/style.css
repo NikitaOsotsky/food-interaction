@@ -71,3 +71,30 @@ stylesheet for main menu
 .main-menu__list__element__text {
   cursor: inherit;
 }
+/**
+stylesheet for sub menu
+ */
+.sub-menu {
+  position: absolute;
+  width: 290px;
+  height: 540px;
+  left: 298px;
+  top: 8px;
+}
+.sub-menu__logo {
+  margin: 0 auto;
+  display: block;
+  padding-top: 20px;
+}
+.sub-menu__list__item {
+  color: #4c5255;
+  list-style: none;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.sub-menu__header {
+  color: rgba(100, 107, 110, 0.9);
+}
