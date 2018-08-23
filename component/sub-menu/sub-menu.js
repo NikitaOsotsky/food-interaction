@@ -1,13 +1,6 @@
 class SubMenu {
-  constructor(data, container) {
-    this.data = data;
+  constructor(container) {
     this.container = container;
-    if (!this.data) {
-      console.log('No data');
-    } else {
-      console.log(this.data);
-      this.render(this.data);
-    }
   }
   render(data) {
     this.html = '';
