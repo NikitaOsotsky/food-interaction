@@ -7,14 +7,17 @@ const menu = new MainMenu(container);
 const subMenuContainer = document.querySelector('.sub-menu');
 const subMenu = new SubMenu(subMenuContainer);
 
-let subMenuState = false;
+export let subMenuState = {stage: false,
+                           setStage(a){
+                             this.stage = a;
+                           }};
 
 menu.getBrands();
 container.addEventListener('click', (evt) => {
-  if (!subMenuState) {
+  if (!subMenuState.stage) {
     subMenuContainer.style.opacity = '1';
     subMenuContainer.style.width = '100%';
-    subMenuState = true;
+    subMenuState.setStage(true);
   }
   menu.getShopData(evt.target);
 });
