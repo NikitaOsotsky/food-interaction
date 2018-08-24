@@ -115,6 +115,9 @@ stylesheet for sub menu
                                       rgba(170, 170, 170, 0.21) 85%,
                                       rgba(170, 170, 170, 0.11) 100%);
 }
+/**
+sub-menu issues
+ */
 .sub-menu__logo {
   margin: 0 auto;
   display: block;
@@ -133,6 +136,9 @@ stylesheet for sub menu
   color: rgba(100, 107, 110, 0.9);
   text-align: center;
 }
+/**
+close for any div
+ */
 .close-div {
   position: absolute;
   top: 0;
