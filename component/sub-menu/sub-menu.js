@@ -21,18 +21,18 @@ class SubMenu {
       this.html += `</ul>`;
     }
     this.container.innerHTML = this.html;
-    SubMenu.addListeners(this.container, this);
   }
 
-  static addListeners (target, self) {
+  addListeners (target) {
     target.addEventListener('click', (evt) => {
-      self.chooseIt(evt.target);
+      this.chooseIt(evt.target);
     });
+    //TODO: add listener for right button click
   }
   chooseIt (elem) {
     if (elem.className !== this.container.className) {
       console.log(elem);
-      //TODO: choosing elem ty buy
+      //TODO: choosing elem to buy
     }
   }
 
