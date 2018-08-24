@@ -76,10 +76,22 @@ stylesheet for sub menu
  */
 .sub-menu {
   position: absolute;
-  width: 290px;
-  height: 540px;
+  width: 0;
+  max-height: 100%;
   left: 298px;
-  top: 8px;
+  top: 0;
+  opacity: 0;
+  transition: opacity ease-out 0.4s, width ease-out 0.2s;
+}
+.sub-menu:before {
+  content: "";
+  position: absolute;
+  left: -6%;
+  width: 6%;
+  height: 100%;
+  background: linear-gradient(90deg,  rgba(0,0,0,0) 0%,
+                                      rgba(170, 170, 170, 0.21) 85%,
+                                      rgba(170, 170, 170, 0.11) 100%);
 }
 .sub-menu__logo {
   margin: 0 auto;
@@ -97,4 +109,5 @@ stylesheet for sub menu
 }
 .sub-menu__header {
   color: rgba(100, 107, 110, 0.9);
+  text-align: center;
 }
