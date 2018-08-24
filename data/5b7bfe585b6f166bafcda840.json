@@ -5,6 +5,7 @@
       "91833": {"Cold water": 0.10},
       "08976": {"Small stake with chicken": 2.50},
       "78338": {"Big pizza with mushrooms": 19.90}
-    }
+    },
+    "menuName": "Standard"
   }
 ]
