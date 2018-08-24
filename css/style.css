@@ -4,7 +4,7 @@ stylesheet for main menu
 .main-menu {
   position: relative;
   width: 290px;
-  height: 540px;
+  height: 475px;
 }
 .main-menu__header {
   position: relative;
@@ -77,11 +77,11 @@ stylesheet for sub menu
 .sub-menu {
   position: absolute;
   width: 0;
-  max-height: 100%;
+  height: 100%;
   left: 298px;
   top: 0;
   opacity: 0;
-  transition: opacity ease-out 0.4s, width ease-out 0.2s;
+  transition: opacity ease-out 0.2s, width ease-out 0.2s;
 }
 .sub-menu:before {
   content: "";
@@ -110,4 +110,16 @@ stylesheet for sub menu
 .sub-menu__header {
   color: rgba(100, 107, 110, 0.9);
   text-align: center;
+}
+.close-div {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  color: red;
+  cursor: pointer;
+  font-size: 0.6em;
+  transition: text-shadow ease-out 0.2s;
+}
+.close-div:hover {
+  text-shadow: 2px 2px 3px rgba(118, 6, 30, 0.8);
 }
