@@ -15,7 +15,7 @@ class MainMenu {
           this.render(data)
         })
         .fail((data) => {
-          this.default = [{},{}];//TODO: description some default data
+          this.default = [{},{}];
           this.render(this.default)
         });
   }
