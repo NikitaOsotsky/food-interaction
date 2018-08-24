@@ -13,7 +13,7 @@ class SubMenu {
       for (let key in data[i].menu) {
         for (let item in data[i].menu[key]) {
           this.html +=
-              `<li class="sub-menu__list__item">${item}
+              `<li id="${key}" class="sub-menu__list__item">${item}
               <span class="sub-menu__list__item__cost">${data[i].menu[key][item]}</span> 
             </li>`;
         }
@@ -21,6 +21,19 @@ class SubMenu {
       this.html += `</ul>`;
     }
     this.container.innerHTML = this.html;
+    SubMenu.addListeners(this.container, this);
+  }
+
+  static addListeners (target, self) {
+    target.addEventListener('click', (evt) => {
+      self.chooseIt(evt.target);
+    });
+  }
+  chooseIt (elem) {
+    if (elem.className !== this.container.className) {
+      console.log(elem);
+      //TODO: choosing elem ty buy
+    }
   }
 
 }
