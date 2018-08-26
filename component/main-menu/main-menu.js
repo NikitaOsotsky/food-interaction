@@ -54,10 +54,10 @@ class MainMenu {
     self.liChildren = target.parentElement;
     self.restName = self.getName(self.liChildren.id);
     self.restLogo = self.getLogo(self.liChildren.id);
+    if (target.className === 'main-menu__list') {
+      return false;
+    }
     return new Promise(function(resolve, reject) {
-      if (target.className === 'main-menu__list') {
-        return;
-      }
       self.foodData = "";
       MainMenuService.getBrands('/data/'+self.liChildren.id+'.json')
           .done((data) => {
