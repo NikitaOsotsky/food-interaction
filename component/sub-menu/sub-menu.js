@@ -1,5 +1,6 @@
 import {subMenuState} from "../../app.js";
-
+import {ElementChooser} from "./sub-menu-chooser.js";
+const choseElems = new ElementChooser();
 class SubMenu {
   constructor(container) {
     this.container = container;
@@ -40,15 +41,18 @@ class SubMenu {
       this.container.style.opacity = '0';
       this.container.style.width = '0';
       subMenuState.setStage(false);
+      choseElems.init();
     }
     /**
      * choosing elem to buy
      */
-    if (elem.className !== this.container.className) {
+    if (elem.className !== this.container.className && elem.parentNode !== this.container) {
       console.log(elem);
       //TODO: choosing elem to buy
+      choseElems.addChose(elem);
     }
   }
 
 }
 export {SubMenu};
+export {choseElems};
