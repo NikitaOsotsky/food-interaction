@@ -9,14 +9,27 @@ export class ElementChooser {
 
   addChose(elem) {
     if (!this.suchElemExist(elem)) {
-      let key = elem.id;
-      this.elemsCollection[key] = {
+      this.elemsCollection[elem.id] = {
         count: 1
       };
     } else {
       this.elemsCollection[elem.id].count++;
     }
     this.render(elem);
+  }
+
+  removeChose (elem) {
+    if (!this.suchElemExist(elem)) {
+      return false;
+    } else {
+      if (this.elemsCollection[elem.id].count > 1) {
+        this.elemsCollection[elem.id].count--;
+        this.render(elem);
+      } else {
+        delete this.elemsCollection[elem.id];
+        this.render(elem, 'delete');
+      }
+    }
   }
 
   suchElemExist(elem) {
@@ -26,7 +39,13 @@ export class ElementChooser {
     return false;
   }
 
-  render(elem) {
+  render(elem, key) {
+    if (key === 'delete') {
+      if (elem.lastElementChild.className === 'sub-menu__list__item__mark') {
+        elem.lastElementChild.remove();
+        return;
+      }
+    }
     if (elem.lastElementChild.className === 'sub-menu__list__item__mark') {
       elem.lastElementChild.innerHTML = this.elemsCollection[elem.id].count;
     } else {

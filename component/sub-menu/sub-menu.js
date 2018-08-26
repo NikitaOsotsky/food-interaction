@@ -26,33 +26,41 @@ class SubMenu {
     }
     this.container.innerHTML = this.html;
   }
-
   addListeners (target) {
     target.addEventListener('click', (evt) => {
-      this.chooseIt(evt.target);
+      this.chooseIt(evt.target, 'click');
     });
-    //TODO: add listener for right button click
+    target.addEventListener('contextmenu', (evt) => {
+      evt.preventDefault();
+      this.chooseIt(evt.target, 'contextmenu');
+      return false;
+    }, false);
   }
-  chooseIt (elem) {
-    /**
-     * closer
-     */
-    if (elem.className === 'close-div') {
-      this.container.style.opacity = '0';
-      this.container.style.width = '0';
-      subMenuState.setStage(false);
-      choseElems.init();
-    }
-    /**
-     * choosing elem to buy
-     */
-    if (elem.className !== this.container.className && elem.parentNode !== this.container) {
-      console.log(elem);
-      //TODO: choosing elem to buy
-      choseElems.addChose(elem);
+  chooseIt (elem, event) {
+    if (event === 'click') {
+      /**
+       * closer
+       */
+      if (elem.className === 'close-div') {
+        this.container.style.opacity = '0';
+        this.container.style.width = '0';
+        subMenuState.setStage(false);
+        choseElems.init();
+      }
+      /**
+       * choosing elem to buy
+       */
+      if (elem.className !== this.container.className && elem.parentNode !== this.container) {
+        choseElems.addChose(elem);
+      }
+    } else {
+      if (event === 'contextmenu') {
+        if (elem.className !== this.container.className && elem.parentNode !== this.container) {
+          choseElems.removeChose(elem);
+        }
+      }
     }
   }
-
 }
 export {SubMenu};
 export {choseElems};
