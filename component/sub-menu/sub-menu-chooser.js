@@ -76,11 +76,9 @@ export class ElementChooser {
   }
 
   render(elem, key) {
-    if (key === 'delete') {
-      if (elem.lastElementChild.className === 'sub-menu__list__item__mark') {
-        elem.lastElementChild.remove();
-        return;
-      }
+    if (key === 'delete' && elem.lastElementChild.className === 'sub-menu__list__item__mark') {
+      elem.lastElementChild.remove();
+      return;
     }
     if (elem.lastElementChild.className === 'sub-menu__list__item__mark') {
       elem.lastElementChild.innerHTML = this.elemsCollection[elem.id].count;
