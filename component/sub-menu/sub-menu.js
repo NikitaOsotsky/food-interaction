@@ -25,7 +25,7 @@ class SubMenu {
       this.html += `</ul>`;
     }
     this.container.innerHTML = this.html;
-    choseElems.init();
+    choseElems.init(data);
   }
   addListeners (target) {
     target.addEventListener('click', (evt) => {

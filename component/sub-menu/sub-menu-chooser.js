@@ -1,10 +1,13 @@
 export class ElementChooser {
   constructor() {
     this.elemsCollection = {};
+    this.sumaryCost = 0;
   }
 
-  init() {
+  init(data) {
     this.elemsCollection = {};
+    this.sumaryCost = 0;
+    this.data = data;
   }
 
   addChose(elem) {
@@ -15,6 +18,11 @@ export class ElementChooser {
     } else {
       this.elemsCollection[elem.id].count++;
     }
+    /**
+     * sum cost
+     */
+    ElementChooser.changeSum(elem, 'add', this);
+    console.log(this.sumaryCost);
     this.render(elem);
   }
 
@@ -30,13 +38,42 @@ export class ElementChooser {
         this.render(elem, 'delete');
       }
     }
+    ElementChooser.changeSum(elem, 'remove', this);
+    console.log(this.sumaryCost);
+  }
+
+  static changeSum(elem, effect, self) {
+    for (let key in self.data) {
+      if (elem.id in self.data[key].menu) {
+        for (let name in self.data[key].menu[elem.id]) {
+          switch (effect) {
+            case 'add':
+              self.sumaryCost += self.data[key].menu[elem.id][name];
+              break;
+            case 'remove':
+              self.sumaryCost -= self.data[key].menu[elem.id][name];
+              break;
+            default: break;
+          }
+        }
+      }
+    }
+    self.sumaryCost = ElementChooser.gaussRound(self.sumaryCost, 2);
+  }
+
+  static gaussRound(num, decimalPlaces) {
+    let d = decimalPlaces || 0,
+        m = Math.pow(10, d),
+        n = +(d ? num * m : num).toFixed(8),
+        i = Math.floor(n), f = n - i,
+        e = 1e-8,
+        r = (f > 0.5 - e && f < 0.5 + e) ?
+            ((i % 2 === 0) ? i : i + 1) : Math.round(n);
+    return d ? r / m : r;
   }
 
   suchElemExist(elem) {
-    if (elem.id in this.elemsCollection) {
-      return true;
-    }
-    return false;
+    return elem.id in this.elemsCollection;
   }
 
   render(elem, key) {
