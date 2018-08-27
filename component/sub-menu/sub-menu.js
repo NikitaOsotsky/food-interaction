@@ -25,6 +25,7 @@ class SubMenu {
       this.html += `</ul>`;
     }
     this.container.innerHTML = this.html;
+    choseElems.init();
   }
   addListeners (target) {
     target.addEventListener('click', (evt) => {
@@ -37,28 +38,31 @@ class SubMenu {
     }, false);
   }
   chooseIt (elem, event) {
-    if (event === 'click') {
-      /**
-       * closer
-       */
-      if (elem.className === 'close-div') {
-        this.container.style.opacity = '0';
-        this.container.style.width = '0';
-        subMenuState.setStage(false);
-        choseElems.init();
-      }
-      /**
-       * choosing elem to buy
-       */
-      if (elem.className !== this.container.className && elem.parentNode !== this.container) {
-        choseElems.addChose(elem);
-      }
-    } else {
-      if (event === 'contextmenu') {
+    switch (event) {
+      case 'click':
+        /**
+         * closer
+         */
+        if (elem.className === 'close-div') {
+          this.container.style.opacity = '0';
+          this.container.style.width = '0';
+          subMenuState.setStage(false);
+          choseElems.init();
+        }
+        /**
+         * choosing elem to buy
+         */
+        if (elem.className !== this.container.className && elem.parentNode !== this.container) {
+          choseElems.addChose(elem);
+        }
+        break;
+      case 'contextmenu':
         if (elem.className !== this.container.className && elem.parentNode !== this.container) {
           choseElems.removeChose(elem);
         }
-      }
+        break;
+      default:
+        break;
     }
   }
 }
