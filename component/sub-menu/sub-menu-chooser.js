@@ -29,14 +29,13 @@ export class ElementChooser {
   removeChose(elem) {
     if (!this.suchElemExist(elem)) {
       return false;
+    }
+    if (this.elemsCollection[elem.id].count > 1) {
+      this.elemsCollection[elem.id].count--;
+      this.render(elem);
     } else {
-      if (this.elemsCollection[elem.id].count > 1) {
-        this.elemsCollection[elem.id].count--;
-        this.render(elem);
-      } else {
-        delete this.elemsCollection[elem.id];
-        this.render(elem, 'delete');
-      }
+      delete this.elemsCollection[elem.id];
+      this.render(elem, 'delete');
     }
     ElementChooser.changeSum(elem, 'remove', this);
     console.log(this.sumaryCost);
