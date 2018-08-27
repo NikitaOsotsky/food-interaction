@@ -1,10 +1,10 @@
-import {MainMenuService} from "./main-menu-service.js"
-import {subMenu} from "../../app.js"
+import { MainMenuService } from "./main-menu-service.js"
+import { subMenu } from "../../app.js"
 // TODO: template comes from 'main-menu.tpl'
 // TODO: template comes from 'main-menu__list-element.tpl'
 
 class MainMenu {
-  constructor (container) {
+  constructor(container) {
     this.container = container;
   }
 
@@ -14,9 +14,8 @@ class MainMenu {
           this.data = data;
           this.render(data)
         })
-        .fail((data) => {
-          this.default = [{},{}];
-          this.render(this.default)
+        .fail((jqXHR, textStatus, errorThrown) => {
+          console.log(errorThrown);
         });
   }
 
@@ -34,29 +33,23 @@ class MainMenu {
     this.container.innerHTML = html;
   }
 
-  getName (id) {
+  getAttribute(id, attr) {
     for (let key in this.data) {
       if (this.data[key].id === id) {
-        return this.data[key].name;
+        return this.data[key][attr];
       }
     }
   }
 
-  getLogo (id) {
-    for (let key in this.data) {
-      if (this.data[key].id === id) {
-        return this.data[key].image;
-      }
-    }
+  checkClickedObj(target) {
+    return target.className === 'main-menu__list';
   }
-  getShopData (target) {
+
+  getShopData(target) {
     const self = this;
     self.liChildren = target.parentElement;
-    self.restName = self.getName(self.liChildren.id);
-    self.restLogo = self.getLogo(self.liChildren.id);
-    if (target.className === 'main-menu__list') {
-      return false;
-    }
+    self.restName = self.getAttribute(self.liChildren.id, 'name');
+    self.restLogo = self.getAttribute(self.liChildren.id, 'image');
     return new Promise(function(resolve, reject) {
       self.foodData = "";
       MainMenuService.getBrands('/data/'+self.liChildren.id+'.json')
@@ -71,4 +64,5 @@ class MainMenu {
     })
   }
 }
-export {MainMenu};
+
+export { MainMenu };

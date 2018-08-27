@@ -1,10 +1,12 @@
-import {subMenuState} from "../../app.js";
-import {ElementChooser} from "./sub-menu-chooser.js";
+import { subMenuState } from "../../app.js";
+import { ElementChooser } from "./sub-menu-chooser.js";
+
 const choseElems = new ElementChooser();
 class SubMenu {
   constructor(container) {
     this.container = container;
   }
+
   render(data, name, logo) {
     this.html = '';
     this.html +=//TODO: add groups to json. Restructured string to groups.
@@ -27,7 +29,8 @@ class SubMenu {
     this.container.innerHTML = this.html;
     choseElems.init(data);
   }
-  addListeners (target) {
+
+  addListeners(target) {
     target.addEventListener('click', (evt) => {
       this.chooseIt(evt.target, 'click');
     });
@@ -37,7 +40,8 @@ class SubMenu {
       return false;
     }, false);
   }
-  chooseIt (elem, event) {
+
+  chooseIt(elem, event) {
     switch (event) {
       case 'click':
         /**
@@ -66,5 +70,6 @@ class SubMenu {
     }
   }
 }
-export {SubMenu};
-export {choseElems};
+
+export { SubMenu };
+export { choseElems };

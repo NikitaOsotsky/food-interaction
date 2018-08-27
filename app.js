@@ -14,12 +14,13 @@ export let subMenuState = {stage: false,
                            }};
 
 menu.getBrands();
-container.addEventListener('click', (evt) => {
-  if (menu.getShopData(evt.target)) {
+container.addEventListener('click', (e) => {
+  if (!menu.checkClickedObj(e.target)) {
     if (!subMenuState.stage) {
       subMenuContainer.style.opacity = '1';
       subMenuContainer.style.width = '100%';
       subMenuState.setStage(true);
+      menu.getShopData(e.target)
     }
   }
 });
