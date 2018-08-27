@@ -4,7 +4,7 @@ stylesheet for main menu
 .main-menu {
   position: relative;
   width: 290px;
-  height: 540px;
+  height: 475px;
 }
 .main-menu__header {
   position: relative;
@@ -70,4 +70,107 @@ stylesheet for main menu
 }
 .main-menu__list__element__text {
   cursor: inherit;
+}
+/**
+stylesheet for sub menu
+ */
+.sub-menu {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 100%;
+  top: 0;
+  opacity: 0;
+  transition: opacity ease-out 0.2s, width ease-out 0.2s;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.sub-menu::-webkit-scrollbar{
+  width:12px;
+}
+.sub-menu::-webkit-scrollbar-thumb{
+  border-width:1px 1px 1px 2px;
+  border-color: #777;
+  background-color: #aaa;
+}
+.sub-menu::-webkit-scrollbar-thumb:hover{
+  border-width: 1px 1px 1px 2px;
+  border-color: #555;
+  background-color: #777;
+}
+.sub-menu::-webkit-scrollbar-track{
+  border-width:0;
+}
+.sub-menu::-webkit-scrollbar-track:hover{
+  border-left: solid 1px #aaa;
+  background-color: #eee;
+}
+.sub-menu:before {
+  content: "";
+  position: absolute;
+  left: -6%;
+  width: 6%;
+  height: 100%;
+  background: linear-gradient(90deg,  rgba(0,0,0,0) 0%,
+                                      rgba(170, 170, 170, 0.21) 85%,
+                                      rgba(170, 170, 170, 0.11) 100%);
+}
+/**
+sub-menu issues
+ */
+.sub-menu__logo {
+  margin: 0 auto;
+  display: block;
+  padding-top: 20px;
+}
+.sub-menu__list__item {
+  color: #4c5255;
+  list-style: none;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+.sub-menu__header {
+  color: rgba(100, 107, 110, 0.9);
+  text-align: center;
+}
+.sub-menu__list__item__cost {
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+  z-index: -1;
+  font-size: 0.85em;
+  font-weight: normal;
+}
+.sub-menu__list__item__mark {
+  position: absolute;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  left: -20px;
+  width: 15px;
+  height: 15px;
+  font-weight: normal;
+  font-size: 0.85em;
+  text-align: center;
+  z-index: -1;
+}
+/**
+close for any div
+ */
+.close-div {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  color: red;
+  cursor: pointer;
+  font-size: 0.6em;
+  transition: text-shadow ease-out 0.2s;
+}
+.close-div:hover {
+  text-shadow: 2px 2px 3px rgba(118, 6, 30, 0.8);
 }

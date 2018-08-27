@@ -1,0 +1,21 @@
+[
+  {
+    "menu": {
+      "12313": {"Cheeseburger Happy Meal": 8.79},
+      "97684": {"Hamburger Happy Meal": 8.38},
+      "32445": {"4pc. Chicken McNuggets": 7.48}
+    },
+    "menuName": "Happy Meal"
+  },
+  {
+    "menu": {
+      "83638": {"Espresso": 3.20},
+      "29737": {"Cappuccino": 4.80},
+      "78483": {"Café Latte": 4.85},
+      "90965": {"Flat White": 5.35},
+      "28363": {"Long Black": 6.21},
+      "78866": {"Irish Coffee": 7.02}
+    },
+    "menuName": "McCafe"
+  }
+]
