@@ -26,7 +26,7 @@ export class ElementChooser {
     this.render(elem);
   }
 
-  removeChose (elem) {
+  removeChose(elem) {
     if (!this.suchElemExist(elem)) {
       return false;
     } else {

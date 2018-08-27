@@ -20,8 +20,8 @@ container.addEventListener('click', (e) => {
       subMenuContainer.style.opacity = '1';
       subMenuContainer.style.width = '100%';
       subMenuState.setStage(true);
-      menu.getShopData(e.target)
     }
+    menu.getShopData(e.target);
   }
 });
 subMenu.addListeners(subMenuContainer);
