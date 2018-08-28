@@ -26,7 +26,10 @@ class SubMenu {
       }
       this.html += `</ul>`;
     }
+    this.subPanel = document.createElement('div');
+    this.subPanel.className = 'sub-menu__sub-panel';
     this.container.innerHTML = this.html;
+    this.container.appendChild(this.subPanel);
     choseElems.init(data);
   }
 
