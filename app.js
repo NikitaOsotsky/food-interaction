@@ -1,6 +1,6 @@
 import {MainMenu} from "./component/main-menu/main-menu.js";
 import {SubMenu} from "./component/sub-menu/sub-menu.js";
-import {choseElems} from "./component/sub-menu/sub-menu.js";
+//import {choseElems} from "./component/sub-menu/sub-menu.js";
 
 const container = document.querySelector('.main-menu__list');
 const menu = new MainMenu(container);
@@ -25,6 +25,6 @@ container.addEventListener('click', (e) => {
   }
 });
 subMenu.addListeners(subMenuContainer);
-choseElems.init();
+//choseElems.init();
 
 export {subMenu};

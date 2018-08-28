@@ -1,10 +1,16 @@
 export class ElementChooser {
   constructor() {
-    this.elemsCollection = {};
-    this.sumaryCost = 0;
   }
 
   init(data) {
+    this.sumPanel = document.querySelector('.cost-label__sum');
+    if (this.sumPanel.childNodes.length === 0) {
+      this.text = document.createTextNode('0');
+      this.sumPanel.appendChild(this.text);
+    } else {
+      this.sumPanel.removeChild(this.sumPanel.firstChild);
+      this.init(data);
+    }
     this.elemsCollection = {};
     this.sumaryCost = 0;
     this.data = data;
@@ -58,6 +64,9 @@ export class ElementChooser {
       }
     }
     self.sumaryCost = ElementChooser.gaussRound(self.sumaryCost, 2);
+    self.sumPanel.removeChild(self.sumPanel.firstChild);
+    self.text = document.createTextNode(self.sumaryCost);
+    self.sumPanel.appendChild(self.text);
   }
 
   static gaussRound(num, decimalPlaces) {

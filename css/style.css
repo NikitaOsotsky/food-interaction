@@ -84,6 +84,8 @@ stylesheet for sub menu
   transition: opacity ease-out 0.2s, width ease-out 0.2s;
   overflow-x: hidden;
   overflow-y: scroll;
+  padding-bottom: 17%;
+  box-sizing: border-box;
 }
 .sub-menu::-webkit-scrollbar{
   width:12px;
@@ -173,4 +175,36 @@ close for any div
 }
 .close-div:hover {
   text-shadow: 2px 2px 3px rgba(118, 6, 30, 0.8);
+}
+/**
+sub-panel
+ */
+.sub-menu__sub-panel {
+  position: absolute;
+  top: 85%;
+  left: 100%;
+  width: 100%;
+  background-color: rgba(198, 201, 203, 0.32);
+  color: rgba(35, 125, 176, 1);
+}
+.cost-label {
+  margin: 5px auto;
+  text-align: center;
+  user-select: none;
+  display: block;
+}
+.button-submit {
+  margin: 5px auto;
+  width: 40%;
+  height: 5%;
+  text-align: center;
+  background-color: rgba(136, 140, 143, 0.76);
+  color: #fff;
+  user-select: none;
+  cursor: pointer;
+  padding: 5px 0;
+  border: 1px solid rgba(128, 128, 128, 0.76);
+}
+.cost-label__sum {
+  color: rgba(118, 6, 30, 0.8);
 }
