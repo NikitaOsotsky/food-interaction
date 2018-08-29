@@ -1,9 +1,9 @@
 export class ElementChooser {
   constructor() {
+    this.sumPanel = document.querySelector('.cost-label__sum');
   }
 
   init(data) {
-    this.sumPanel = document.querySelector('.cost-label__sum');
     if (this.sumPanel.childNodes.length === 0) {
       this.text = document.createTextNode('0');
       this.sumPanel.appendChild(this.text);
@@ -13,7 +13,7 @@ export class ElementChooser {
     }
     this.elemsCollection = {};
     this.sumaryCost = 0;
-    this.data = data;
+    data ? this.data = data : this.data;
   }
 
   addChose(elem) {
@@ -28,7 +28,6 @@ export class ElementChooser {
      * sum cost
      */
     ElementChooser.changeSum(elem, 'add', this);
-    console.log(this.sumaryCost);
     this.render(elem);
   }
 
@@ -44,7 +43,6 @@ export class ElementChooser {
       this.render(elem, 'delete');
     }
     ElementChooser.changeSum(elem, 'remove', this);
-    console.log(this.sumaryCost);
   }
 
   static changeSum(elem, effect, self) {
