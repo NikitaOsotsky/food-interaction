@@ -1,5 +1,6 @@
 import { subMenuState } from "../../app.js";
 import { ElementChooser } from "./sub-menu-chooser.js";
+import { subPanel } from "../../app.js";
 
 const choseElems = new ElementChooser();
 class SubMenu {
@@ -51,6 +52,7 @@ class SubMenu {
           this.container.style.opacity = '0';
           this.container.style.width = '0';
           subMenuState.setStage(false);
+          subPanel.classList.remove('visible');
           choseElems.init();
         }
         /**
