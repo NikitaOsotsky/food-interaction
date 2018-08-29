@@ -54,6 +54,7 @@ class SubMenu {
           subMenuState.setStage(false);
           subPanel.classList.remove('visible');
           choseElems.init();
+          return;
         }
         /**
          * choosing elem to buy
